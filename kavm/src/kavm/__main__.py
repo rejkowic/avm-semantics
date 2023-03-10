@@ -171,7 +171,7 @@ def exec_kast(
 
 
 def top_down_kore(f: Callable[[kore.Pattern], kore.Pattern], pattern: kore.Pattern) -> kore.Pattern:
-    return f(pattern).map_pattern(lambda _kpattern: top_down_kore(f, _kpattern))  # type: ignore
+    return f(pattern).map_patterns(lambda _kpattern: top_down_kore(f, _kpattern))  # type: ignore
 
 
 def get_state_dumps_kore(input: kore.Pattern) -> Optional[kore.Pattern]:
